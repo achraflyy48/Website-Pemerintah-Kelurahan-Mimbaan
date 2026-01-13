@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunung Patok (Watu Kodok) - Potensi Wisata Mimbaan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'pemda-blue': '#1e3a8a', 'pemda-gold': '#d97706', 'pemda-gray': '#f3f4f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- NAVBAR SEDERHANA -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"><img src="Assets/Logo Situbondo.png" alt="Logo Kabupaten Situbondo"/></div>
+                <span class="font-bold text-orange-500 tracking-wide">KELURAHAN MIMBAAN</span>
+            </a>
+            <a href="index.html#wisata" class="text-gray-600 hover:text-pemda-blue font-medium text-sm flex items-center gap-2"><i class="fas fa-arrow-left"></i> Kembali ke Wisata</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="relative h-[60vh] overflow-hidden">
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <img src="Assets/GUNUNG.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Kuliner Malam">
+        <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+            <span class="bg-pemda-gold text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Destinasi Favorit</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-lg mb-2">Wisata Gunung Patok (Watu Kodok)</h1>
+            <p class="text-gray-200 text-lg max-w-2xl font-light">Bukit Indah yang terletak di Wilayah Mimbaan.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container mx-auto px-4 py-12 -mt-20 relative z-30">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- KOLOM KIRI: INFO UTAMA -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Deskripsi -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-mountain text-orange-500 mr-3"></i> Tentang Gunung Patok
+                    </h2>
+                    <div class="prose prose-lg text-gray-600 font-serif leading-relaxed text-justify">
+                        <p>
+                            Watu Kodok adalah sebuah bukit yang di puncaknya terdapat sebuah batu dengan diameter sekitar satu meter. Tidak banyak vegetasi yang tumbuh, selain rumput, beberapa jenis semak, dan beberapa pohon. Tidak jauh dari posisi batu, ada tiang Saluran Udara Tegangan Ekstra Tinggi (sutet) yang berdiri di antara satu bukit dengan bukit di sebelahnya.
+                        </p>
+                        <p>
+                            Area Bukit ini merupakan wilayah yang dimiliki oleh 2 (dua) Ketua RT yaitu RT 002 / RW 020 (Wilayah Ayuban) dan RT 003 / RW 022 (Wilayah Perum Panji Permai).Salah satu Hidden Gem Situbondo itu tampaknya tidak banyak orang datang, apalagi untuk keperluan berwisata dan refreshing. Kalaupun ada, jarang orang yang sadar bahwa bukit itu sebagai salah satu wisata alam di Situbondo yang <strong>gratis</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gallery -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Galeri Foto</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="Assets/SUBGUNUNG2.jpeg" class="rounded-lg h-32 w-full object-cover hover:scale-105 transition cursor-pointer shadow-sm">
+                        <img src="Assets/SUBGUNUNG3.jpeg" class="rounded-lg h-32 w-full object-cover hover:scale-105 transition cursor-pointer shadow-sm">
+                        <img src="Assets/SUBGUNUNG1.jpeg" class="rounded-lg h-32 w-full object-cover hover:scale-105 transition cursor-pointer shadow-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOLOM KANAN: INFO PRAKTIS -->
+            <div class="space-y-6">
+                <!-- Info Box -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-pemda-gold">
+                    <h3 class="font-bold text-gray-900 text-lg mb-4">Informasi Kunjungan</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 flex-shrink-0 text-center text-orange-500"><i class="far fa-clock text-xl"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-sm">Jam Operasional</h4>
+                                <p class="text-sm text-gray-500">Setiap Hari: 24 JAM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 flex-shrink-0 text-center text-orange-500"><i class="fas fa-map-marker-alt text-xl"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-sm">Lokasi</h4>
+                                <p class="text-sm text-gray-500">Masuk dalam Area Ayuban RT 002 / RW 020 dan Perum Panji Permai RT 003 / RW 022</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 flex-shrink-0 text-center text-orange-500"><i class="fas fa-wallet text-xl"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-sm">Kisaran Harga</h4>
+                                <p class="text-sm text-gray-500">FREE (GRATIS)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://maps.app.goo.gl/xTod5YK7AyCpyeha8" target="_blank" class="block w-full bg-orange-500 text-white text-center py-2 rounded mt-6 hover:bg-orange-800 transition font-medium text-sm">
+                        <i class="fas fa-location-arrow mr-2"></i> Petunjuk Arah Google Maps
+                    </a>
+                </div>
+
+                <!-- Fasilitas -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="font-bold text-gray-900 text-lg mb-4">Fasilitas Tersedia</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Spot Foto yang Bagus</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Area yang Sejuk dan Asri</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Area Bumi Perkemahan</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Cocok juga untuk Berolahraga</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-orange-600 text-white py-8 mt-12 text-center text-sm">
+        &copy; 2025 Pemerintah Kelurahan Mimbaan.
+    </footer>
+</body>
+</html>

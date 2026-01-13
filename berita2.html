@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapat Koordinasi - Website Resmi Mimbaan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pemda-blue': '#1e3a8a',
+                        'pemda-gold': '#d97706',
+                        'pemda-gray': '#f3f4f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'], // Font enak untuk membaca artikel panjang
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- NAVBAR (Sama dengan Index tapi disederhanakan) -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo Kecil -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm">
+                        <img
+                            src="Assets/Logo Situbondo.png"
+                            alt="Logo Kabupaten Situbondo"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                    <span class="font-bold text-orange-500 tracking-wide">KELURAHAN MIMBAAN</span>
+                </a>
+                
+                <!-- Menu Kembali -->
+                <a href="index.html#berita" class="text-gray-600 hover:text-pemda-blue font-medium text-sm flex items-center gap-2">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Halaman
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4 py-3">
+            <ol class="flex text-xs text-gray-500 space-x-2">
+                <li><a href="index.html" class="hover:text-pemda-blue">Beranda</a></li>
+                <li><span class="text-gray-300">/</span></li>
+                <li><a href="index.html#berita" class="hover:text-pemda-blue">Berita</a></li>
+                <li><span class="text-gray-300">/</span></li>
+                <li class="text-orange-500 font-semibold truncate">Rapat Koordinasi</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-10">
+            
+            <!-- KOLOM ARTIKEL (KIRI/UTAMA) -->
+            <div class="lg:w-2/3">
+                
+                <!-- Header Artikel -->
+                <div class="mb-6">
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Masyarakat</span>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+                        Rapat Koordinasi terkait Keluhan Warga adanya Balap Liar
+                    </h1>
+                    
+                    <!-- Meta Info -->
+                    <div class="flex items-center text-sm text-gray-500 border-b border-gray-200 pb-6 mb-6">
+                        <div class="flex items-center mr-6">
+                            <i class="far fa-user-circle text-lg mr-2"></i>
+                            <span>Oleh: <span class="font-semibold text-gray-700">Admin Kelurahan</span></span>
+                        </div>
+                        <div class="flex items-center mr-6">
+                            <i class="far fa-calendar-alt text-lg mr-2"></i>
+                            <span>06 Januari 2026</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="far fa-eye text-lg mr-2"></i>
+                            <span>30x dibaca</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto Utama -->
+                <figure class="mb-8">
+                    <img src="Assets/SUBBERITA2.jpeg" alt="Rapat Koordinasi" class="w-full h-auto rounded-lg shadow-md object-cover max-h-[500px]">
+                    <figcaption class="text-xs text-gray-500 mt-2 italic text-center">Rapat Koordinasi di Pendopo Kecamatan Panji (Foto: Dok. Kelurahan)</figcaption>
+                </figure>
+
+                <!-- Isi Artikel (Typography News Style) -->
+                <div class="prose prose-lg max-w-none text-gray-700 font-serif leading-loose text-justify">
+                    <p class="first-letter:text-5xl first-letter:font-bold first-letter:text-orange-500 first-letter:mr-3 first-letter:float-left">
+                        <strong>MIMBAAN</strong> - Pada Selasa 06 Januari 2026 Lurah Mimbaan mengikuti rapat koordinasi yang bertempat di Pendopo Kecamatan Panji terkait keluhan warga mengenai balap liar yang ada di Jl. Basuki Rahmat dan Jl. Argopuro. 
+                    </p>
+
+                    <p>
+                        Wilayah Mimbaan sering kali menjadi tempat terjadinya ajang balap liar. Hal ini tentu sangat membahayakan bagi keselamatan warga mimbaan. 2 (Dua) tempat yang sering menjadi tempat balap liar adalah Jl. Basuki Rahmat dan Jl. Argopuro. Biasanya balap liar ini sering kali dilaksanakan pada malam weekend (Malam Sabtu atau Malam Minggu) di jam 00.00 WIB keatas. Banyak warga yang mengeluh terhadap bunyi suara knalpot yang berisik, sehingga warga mimbaan terganggu saat sedang istirahat. 
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4 font-sans">Mengantisipasi adanya Ajang Balap Liar untuk Kenyamanan dan Keselamatan Warga</h3>
+                    
+                    <p>
+                        Berbagai upaya terus diusahakan untuk mengantisipasi adanya Balap Liar. Selasa 30 Desember 2025 kemarin, Lurah Mimbaan mengundang Bu Camat Panji, Kapolsek Panji, Babinsa, dan Ketua RT wilayah mimbaan untuk mengadakan rapat koordinasi yang bertempat di Aula Kelurahan Mimbaan. Lurah Mimbaan melaksanakan koordinasi dengan Bu Camat Panji dan Tokoh Masyarakat wilayah mimbaan untuk berdiskusi mencari solusi bagaimana cara agar Ajang Balap Liar tidak terlaksana.
+                    </p>
+
+                    <blockquote class="border-l-4 border-pemda-gold pl-4 italic my-6 bg-yellow-50 py-4 pr-2 text-gray-600">
+                        "Salah satu cara yang bisa kita lakukan untuk mengatisipasi adanya Balap liar ini adalah melakukan Patroli saat dini hari untuk memantau agar ajang ini tidak terlaksana."
+                    </blockquote>
+
+                    <p>
+                        Dan bagaimana cara mengatasi adanya balap liar dijalanan umum? Mungkin para remaja mengadakan balap liar dijalanan di karenakan minim nya fasilitas untuk ajang balap liar di daerah tempat tinggal mereka, menurut sumber dari pelaku balap liar sendiri mereka berkata "saya sudah bersuara kepada pemerintah dan para polisi agar kami di sediakan tempat untuk ajang sportivitas atau tempat untuk menyalurkan hobi kami, namun sampai saat ini tidak ada konfirmasi lebih lanjut dari pemerintah mau pun polisi". Dan simpel saja para oknum balap liar bisa saja menghentikan aksinya jika ada tempat atau fasilitas yang dibangun oleh pemerintah kota dan tidak menggunakan fasilitas umum seperti jalan raya sebagai ajang balap liar.
+                    </p>
+                </div>
+
+                <!-- Tags -->
+                <div class="mt-10 pt-6 border-t border-gray-200">
+                    <span class="text-sm font-bold text-gray-600 mr-2">Tags:</span>
+                    <a href="#" class="inline-block bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2 mb-2 transition">#Masyarakat</a>
+                    <a href="#" class="inline-block bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2 mb-2 transition">#MengantisipasiBalapLiar</a>
+                    <a href="#" class="inline-block bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2 mb-2 transition">#PemkabSitubondo</a>
+                    <a href="#" class="inline-block bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-600 mr-2 mb-2 transition">#MimbaanSiapNaikKelas</a>
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="mt-6 flex items-center gap-4">
+                    <span class="text-sm font-bold text-gray-600">Bagikan:</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/Website%20Kelurahan/berita1.html" class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://api.whatsapp.com/send?text=http://127.0.0.1:5500/Website%20Kelurahan/berita1.html" class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:5500/Website%20Kelurahan/berita1.html" class="w-8 h-8 rounded-full bg-sky-400 text-white flex items-center justify-center hover:bg-sky-500 transition"><i class="fab fa-twitter"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER SEDERHANA -->
+    <footer class="bg-orange-600 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-90">&copy; 2025 Pemerintah Kelurahan Mimbaan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

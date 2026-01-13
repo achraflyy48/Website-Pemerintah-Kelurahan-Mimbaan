@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi - Kelurahan Mimbaan</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pemda-primary': '#ea580c',   
+                        'pemda-secondary': '#f97316', 
+                        'pemda-dark': '#c2410c',      
+                        'pemda-bg': '#fff7ed'         
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS KHUSUS UNTUK BAGAN ORGANISASI (RESPONSIVE TREE) */
+        
+        /* General Tree Styles */
+        .tree {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            /* PERBAIKAN: Memastikan lebar bagan menyesuaikan konten agar tidak terpotong di kiri */
+            width: max-content; 
+            min-width: 100%;
+            margin: 0 auto;
+        }
+
+        .tree ul {
+            padding-top: 20px; 
+            position: relative;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tree li {
+            float: left; 
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+        }
+
+        /* Garis Penghubung (Connectors) */
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute; 
+            top: 0; 
+            right: 50%;
+            border-top: 2px solid #ccc;
+            width: 50%; 
+            height: 20px;
+        }
+        .tree li::after {
+            right: auto; 
+            left: 50%;
+            border-left: 2px solid #ccc;
+        }
+
+        /* Menghapus garis untuk node tunggal/pertama/terakhir */
+        .tree li:only-child::after, .tree li:only-child::before {
+            display: none;
+        }
+        .tree li:only-child { 
+            padding-top: 0;
+        }
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: 0 none;
+        }
+        
+        /* Menambahkan garis vertikal kembali untuk node terakhir */
+        .tree li:last-child::before{
+            border-right: 2px solid #ccc;
+            border-radius: 0 5px 0 0;
+        }
+        .tree li:first-child::after{
+            border-radius: 5px 0 0 0;
+        }
+
+        /* Garis turun ke anak */
+        .tree ul ul::before{
+            content: '';
+            position: absolute; 
+            top: 0; 
+            left: 50%;
+            border-left: 2px solid #ccc;
+            width: 0; 
+            height: 20px;
+        }
+
+        /* Desain KARTU JABATAN */
+        .tree .card {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            display: inline-block;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background: white;
+            width: 140px; /* Lebar Kartu Desktop */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hover Effect */
+        .tree .card:hover {
+            background: #fff7ed; /* pemda-bg */
+            border-color: #ea580c; /* pemda-primary */
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+        }
+
+        /* Foto Profil dalam Kartu */
+        .tree .card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 8px auto;
+            border: 2px solid #ea580c;
+            padding: 2px; /* Memberi jarak antara border dan icon */
+            background-color: #fff7ed; /* Background ikon */
+        }
+
+        /* Warna Level Jabatan */
+        .bg-lurah { background-color: white; border: 2px solid #ea580c !important; }
+        .bg-seklur { background-color: white; border: 2px solid #f97316 !important; }
+        .bg-kasi { background-color: #ffedd5; color: #9a3412 !important; border-color: #ea580c !important; }
+        
+        /* Override warna teks khusus utk header kartu berwarna */
+        .tree .card.bg-lurah .role, .tree .card.bg-seklur .role {
+            color: #ea580c; /* Mengubah warna jabatan menjadi oranye */
+        }
+        .tree .card.bg-lurah .name, .tree .card.bg-seklur .name {
+            color: #ea580c; /* Mengubah warna nama menjadi oranye */
+        }
+
+        /* RESPONSIVE: Tampilan Mobile (Vertical Stack) */
+        @media (max-width: 1024px) {
+            .tree {
+                display: block;
+                padding: 0;
+                width: 100%; /* Reset width untuk mobile */
+                margin: 0;
+                min-width: 0;
+            }
+            .tree ul {
+                display: block;
+                padding: 0;
+                margin-left: 20px; /* Indentasi anak */
+                border-left: 2px solid #ccc; /* Garis vertikal induk */
+            }
+            .tree ul:first-child {
+                border-left: none;
+                margin-left: 0;
+            }
+            .tree li {
+                display: block;
+                float: none;
+                text-align: left;
+                padding: 10px 0;
+                position: relative;
+            }
+            
+            /* Garis horizontal ke item */
+            .tree li::before {
+                content: '';
+                border-top: 2px solid #ccc;
+                top: 25px; /* Posisi tengah kartu */
+                left: -20px;
+                width: 20px;
+                height: 0;
+                border-left: none;
+                border-right: none;
+            }
+            
+            /* Hapus garis-garis desktop */
+            .tree li::after, .tree ul ul::before, .tree li:last-child::before, .tree li:first-child::after {
+                display: none;
+                border: none;
+                border-radius: 0;
+            }
+
+            /* Kartu Mobile Lebih Lebar */
+            .tree .card {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                padding: 10px 15px;
+            }
+            .tree .card img {
+                margin: 0 15px 0 0;
+                width: 40px;
+                height: 40px;
+            }
+            .tree .role {
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+            .tree .name {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 h-16 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm"><img src="Assets/Logo Situbondo.png" alt="Logo Kabupaten Situbondo"/></div>
+                <span class="font-bold text-pemda-primary tracking-wide">KELURAHAN MIMBAAN</span>
+            </a>
+            <a href="index.html#profil" class="text-gray-600 hover:text-pemda-primary font-medium text-sm flex items-center gap-2 transition-colors">
+                <i class="fas fa-arrow-left"></i> Kembali ke Profil
+            </a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="bg-pemda-primary text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">STRUKTUR ORGANISASI</h1>
+            <p class="text-orange-100 max-w-2xl mx-auto">Pemerintah Kelurahan Mimbaan</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (CHART) -->
+    <div class="container mx-auto px-4 py-12 overflow-x-auto">
+        <div class="tree">
+            <ul>
+                <!-- LEVEL 1: LURAH -->
+                <li>
+                    <div class="card bg-lurah">
+                        <!-- Ikon Pria Abu-abu -->
+                        <img src="https://img.icons8.com/ios-filled/100/6B7280/user-male-circle.png" alt="Lurah">
+                        <div>
+                            <div class="role font-bold tracking-wider">LURAH MIMBAAN</div>
+                            <div class="name mt-1">REFAN RIZKY MULYADI, S.STP, M.M</div>
+                        </div>
+                    </div>
+                    
+                    <!-- LEVEL 2: SEKRETARIS LURAH -->
+                    <ul>
+                        <li>
+                            <div class="card bg-seklur">
+                                <!-- Ikon Pria Abu-abu -->
+                                <img src="https://img.icons8.com/ios-filled/100/6B7280/user-male-circle.png" alt="Seklur">
+                                <div>
+                                    <div class="role font-bold tracking-wider">SEKRETARIS LURAH</div>
+                                    <div class="name mt-1">ADI MISYADI, S.Sos</div>
+                                </div>
+                            </div>
+                            
+                            <!-- LEVEL 3: STAF SEKLUR & PARA KASI -->
+                            <ul>
+                                <!-- 1. STAF SEKRETARIAT (Anak Buah Seklur Langsung) -->
+                                <li><div class="card"><div class="role">Staf Sekretariat</div><div class="name">MOH. ABDURRAHMAN</div></div></li>
+                                <li><div class="card"><div class="role">Staf Sekretariat</div><div class="name">ACHMAD RAFLI T.P.S.</div></div></li>
+                                <li><div class="card"><div class="role">Bendahara</div><div class="name">IWAN PRAYOGI</div></div></li>
+                                <li><div class="card"><div class="role">Bendahara</div><div class="name">MOH. RUSMAN</div></div></li>
+
+                                <!-- 2. KASI PEMERINTAHAN (Di Bawah Seklur secara Struktur Bagan) -->
+                                <li>
+                                    <div class="card bg-kasi">
+                                        <!-- Ikon Pria Abu-abu -->
+                                        <img src="https://img.icons8.com/ios-filled/100/6B7280/user-male-circle.png" alt="Kasi Pem">
+                                        <div>
+                                            <div class="role">KASI PEMERINTAHAN</div>
+                                            <div class="name">JAMHURI, S.Sos</div>
+                                        </div>
+                                    </div>
+                                    <!-- BAWAHAN KASI PEM -->
+                                    <ul>
+                                        <li><div class="card"><div class="role">Staf Pemerintahan</div><div class="name">ISA FATMAWATI, S.Sos</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Pemerintahan</div><div class="name">MUH. HUSEN</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Pemerintahan</div><div class="name">KAMELIA IZZAH A.</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Pemerintahan</div><div class="name">JUMA'ATIL WAHIDATUL L.</div></div></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 3. KASI SOSIAL (Di Bawah Seklur secara Struktur Bagan) -->
+                                <li>
+                                    <div class="card bg-kasi">
+                                        <!-- Ikon Pria Abu-abu -->
+                                        <img src="https://img.icons8.com/ios-filled/100/6B7280/user-male-circle.png" alt="Kasi Sos">
+                                        <div>
+                                            <div class="role">KASI SOSIAL</div>
+                                            <div class="name">SUTIKNO, S.Sos</div>
+                                        </div>
+                                    </div>
+                                    <!-- BAWAHAN KASI SOS -->
+                                    <ul>
+                                        <li><div class="card"><div class="role">Staf Sosial</div><div class="name">AHMAD MULYADI</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Sosial</div><div class="name">RABBANI YUSUF</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Sosial</div><div class="name">CANDRA ARIK S., SE.</div></div></li>
+                                    </ul>
+                                </li>
+
+                                <!-- 4. KASI EKBANG (Di Bawah Seklur secara Struktur Bagan) -->
+                                <li>
+                                    <div class="card bg-kasi">
+                                        <!-- Ikon Wanita Abu-abu -->
+                                        <img src="https://img.icons8.com/ios-filled/100/6B7280/user-female-circle.png" alt="Kasi Ekbang">
+                                        <div>
+                                            <div class="role">KASI EKBANG</div>
+                                            <div class="name">LESI WAHYU WIDAYATI, SE.</div>
+                                        </div>
+                                    </div>
+                                    <!-- BAWAHAN KASI EKBANG -->
+                                    <ul>
+                                        <li><div class="card"><div class="role">Staf Ekbang</div><div class="name">SISWANTO INDRA C.</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Ekbang</div><div class="name">INDAWATI NINGSIH</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Ekbang</div><div class="name">JUMRIATI</div></div></li>
+                                        <li><div class="card"><div class="role">Staf Ekbang</div><div class="name">DEWI PUTRI RAHAYU</div></div></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-orange-600 text-white py-8 mt-12 text-center text-sm">
+        &copy; 2025 Pemerintah Kelurahan Mimbaan.
+    </footer>
+
+    <!-- Script Animasi Interaktif Sederhana -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.tree .card');
+            
+            // Efek Klik pada Mobile (untuk highlight)
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Reset semua
+                    cards.forEach(c => c.classList.remove('ring-2', 'ring-pemda-primary'));
+                    // Highlight yang diklik
+                    card.classList.add('ring-2', 'ring-pemda-primary');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

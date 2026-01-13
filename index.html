@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi Kelurahan Mimbaan</title>
+    <meta name="description" content="Website Resmi Pemerintah Kelurahan Mimbaan">
+ 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Inter (Professional & Clean) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Palet Warna Baru (Dominan Oranye)
+                        'pemda-primary': '#ea580c',   // Orange-600 (Warna Utama menggantikan Biru)
+                        'pemda-secondary': '#f97316', // Orange-500 (Warna Aksen menggantikan Emas)
+                        'pemda-dark': '#c2410c',      // Orange-700 (Untuk Hover/Gelap)
+                        'pemda-light': '#ffedd5',     // Orange-100 (Untuk Background ringan)
+                        'pemda-gray': '#f3f4f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles */
+        .card-hover {
+            transition: all 0.1s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Animasi Running Text */
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Transisi Opacity untuk Slider Background */
+        .bg-slide {
+            transition: opacity 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Branding -->
+                <div class="flex items-center space-x-3">
+                    <!-- Logo Bulat -->
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-sm">
+                        <img src="Assets/Logo Situbondo.png" alt="Logo Kabupaten Situbondo"/>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-bold text-gray-500 tracking-wider">PEMERINTAH KABUPATEN SITUBONDO</span>
+                        <span class="text-xl font-bold text-pemda-primary leading-none">KELURAHAN MIMBAAN</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8 items-center font-medium text-gray-600">
+                    <a href="#beranda" class="hover:text-pemda-primary transition">Beranda</a>
+                    <a href="#profil" class="hover:text-pemda-primary transition">Profil</a>
+                    <a href="#berita" class="hover:text-pemda-primary transition">Berita</a>
+                    <a href="#kegiatan" class="hover:text-pemda-primary transition">Kegiatan</a>
+                    <!-- Menu Baru: UMKM -->
+                    <a href="#umkm" class="hover:text-pemda-primary transition relative group">
+                        UMKM
+                    </a>
+                    <a href="#wisata" class="hover:text-pemda-primary transition">Wisata</a>
+                    <a href="#kontak" class="bg-pemda-primary text-white px-5 py-2 rounded-lg hover:bg-pemda-dark transition shadow-sm">
+                        Pelayanan
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-100">
+                <a href="#beranda" class="block py-2 text-gray-600 hover:text-pemda-primary">Beranda</a>
+                <a href="#profil" class="block py-2 text-gray-600 hover:text-pemda-primary">Profil</a>
+                <a href="#berita" class="block py-2 text-gray-600 hover:text-pemda-primary">Berita</a>
+                <a href="#kegiatan" class="block py-2 text-gray-600 hover:text-pemda-primary">Kegiatan</a>
+                <a href="#umkm" class="block py-2 text-gray-600 hover:text-pemda-primary">UMKM Kelurahan</a>
+                <a href="#wisata" class="block py-2 text-gray-600 hover:text-pemda-primary">Wisata</a>
+                <a href="#kontak" class="block py-2 mt-2 font-bold text-pemda-primary">Pelayanan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- RUNNING TEXT -->
+    <div class="bg-pemda-primary text-white py-2 border-b border-orange-800 shadow-inner z-40">
+        <div class="container mx-auto px-4 flex items-center overflow-hidden">
+            <!-- Label Info -->
+            <span class="bg-pemda-secondary px-3 py-1 text-xs font-bold rounded mr-4 z-10 relative flex-shrink-0 shadow">INFO TERKINI</span>
+            
+            <!-- Container Teks Berjalan -->
+            <div class="overflow-hidden w-full">
+                <div class="whitespace-nowrap animate-marquee">
+                    <span class="mx-4"><i class="fas fa-info-circle mr-2"></i>Selamat Datang di Website Resmi Kelurahan Mimbaan.</span>
+                    <span class="mx-4">|</span>
+                    <span class="mx-4"><i class="fas fa-clock mr-2"></i>Layanan Pengurusan Surat Administrasi buka setiap hari kerja 07.30 - 16.00 WIB.</span>
+                    <span class="mx-4">|</span>
+                    <span class="mx-4"><i class="fas fa-cloud-rain mr-2"></i>Himbauan: Jaga kebersihan lingkungan selokan untuk mencegah banjir di musim penghujan.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION DENGAN SLIDER BACKGROUND -->
+    <section id="beranda" class="relative text-white py-32 overflow-hidden">
+        
+        <!-- BACKGROUND SLIDER WRAPPER -->
+        <div class="absolute inset-0 z-0">
+            <!-- Overlay Transparan Oranye Gelap (Agar teks terbaca & hangat) -->
+            <div class="absolute inset-0 bg-orange-900/50 z-10"></div>
+            
+            <!-- Foto-foto Slider -->
+            <div id="hero-slider" class="w-full h-full relative">
+                <!-- Slide 1 -->
+                <img src="Assets/APEL PAGI.jpg" class="bg-slide absolute inset-0 w-full h-full object-cover opacity-100" alt="Kantor Kelurahan">
+                <!-- Slide 2 -->
+                <img src="Assets/MEDIASI.jpg" class="bg-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Pemandangan Desa">
+                <!-- Slide 3 -->
+                <img src="Assets/MALAM PISAH SAMBUT.jpg" class="bg-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Kegiatan Warga">
+                <!-- Slide 4 -->
+                <img src="Assets/PEMBERIAN BANTUAN.jpg" class="bg-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Pelayanan Publik">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 text-center relative z-20">
+            <span class="bg-pemda-secondary text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block shadow-md">Website Resmi</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-md">
+                Melayani Dengan Hati <br> Mimbaan Siap Naik Kelas
+            </h1>
+            <p class="text-lg md:text-xl text-gray-100 mb-10 max-w-2xl mx-auto drop-shadow-sm font-light">
+                Portal informasi resmi Pemerintah Kelurahan Mimbaan. Transparansi informasi publik dan pelayanan prima untuk masyarakat.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#profil" class="bg-white text-pemda-primary px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">
+                    Profil Kelurahan
+                </a>
+                <a href="#kontak" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+        
+        <!-- Quick Stats / Highlights Cards (Link) -->
+        <div class="container mx-auto px-4 -mb-20 mt-16 relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Card 1: Layanan -->
+                <a href="https://linktr.ee/kelurahanmimbaan" class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pemda-primary flex items-center transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer group">
+                    <div class="bg-orange-100 p-3 rounded-full mr-4 text-pemda-primary group-hover:bg-pemda-primary group-hover:text-white transition">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-800 group-hover:text-pemda-primary transition">Layanan Kependudukan</h3>
+                        <p class="text-sm text-gray-500">Info Persyaratan Surat Administrasi</p>
+                    </div>
+                </a>
+
+                <!-- Card 2: Pengaduan -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdACf6Am9i68z6_h9wQj79cGEQlF1qryhwGa41tsy-RJoyrtQ/viewform" class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-pemda-primary flex items-center transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer group">
+                    <div class="bg-orange-100 p-3 rounded-full mr-4 text-pemda-primary group-hover:bg-pemda-primary group-hover:text-white transition">
+                        <i class="fas fa-bullhorn text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-800 group-hover:text-pemda-primary transition">Pengaduan Masyarakat</h3>
+                        <p class="text-sm text-gray-500">Layanan Aspirasi Online</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIK DESA -->
+    <section class="pt-32 pb-16 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-bold text-gray-900">Data Kependudukan & Wilayah</h2>
+                <div class="w-20 h-1 bg-pemda-secondary mx-auto mt-2 rounded-full"></div>
+                <p class="text-gray-500 mt-2 text-sm">Update Data Semester I Tahun 2025</p>
+            </div>
+            
+            <!-- Statistik Utama -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-12">
+                <!-- Stat 1 -->
+                <div class="p-4 hover:bg-gray-50 rounded-lg transition duration-300">
+                    <div class="text-pemda-primary text-4xl mb-3"><i class="fas fa-users"></i></div>
+                    <div class="text-3xl font-bold text-gray-800 counter" data-target="22117">0</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wide mt-1 font-semibold">Total Penduduk</div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="p-4 hover:bg-gray-50 rounded-lg transition duration-300">
+                    <div class="text-pemda-primary text-4xl mb-3"><i class="fas fa-male"></i></div>
+                    <div class="text-3xl font-bold text-gray-800 counter" data-target="10741">0</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wide mt-1 font-semibold">Laki-laki</div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="p-4 hover:bg-gray-50 rounded-lg transition duration-300">
+                    <div class="text-pemda-primary text-4xl mb-3"><i class="fas fa-female"></i></div>
+                    <div class="text-3xl font-bold text-gray-800 counter" data-target="11376">0</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wide mt-1 font-semibold">Perempuan</div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="p-4 hover:bg-gray-50 rounded-lg transition duration-300">
+                    <div class="text-pemda-primary text-4xl mb-3"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="text-3xl font-bold text-gray-800 flex justify-center items-center">
+                        <span class="counter" data-target="749">0</span> <span class="ml-1 text-xl">Ha</span>
+                    </div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wide mt-1 font-semibold">Luas Wilayah</div>
+                </div>
+            </div>
+
+            <!-- Statistik Tambahan: Usia & Agama -->
+            <div class="grid grid-cols-1 gap-12 border-t border-gray-100 pt-10">
+                
+                <!-- Berdasarkan Usia -->
+                <div class="w-full">
+                    <h3 class="text-lg font-bold text-gray-800 text-center mb-6 flex items-center justify-center">
+                        <i class="fas fa-chart-pie text-pemda-secondary mr-2"></i> Berdasarkan Usia
+                    </h3>
+                    <div class="grid grid-cols-3 gap-8 text-center">
+                        <div class="bg-orange-50 p-4 rounded-lg border border-orange-100 hover:shadow-sm transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="7478">0</div>
+                            <div class="text-[10px] md:text-xs text-gray-500 font-bold uppercase mt-1">0-24 Thn</div>
+                            <div class="text-[10px] text-gray-400">Muda</div>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg border border-orange-100 hover:shadow-sm transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="7679">0</div>
+                            <div class="text-[10px] md:text-xs text-gray-500 font-bold uppercase mt-1">25-49 Thn</div>
+                            <div class="text-[10px] text-gray-400">Produktif</div>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg border border-orange-100 hover:shadow-sm transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="6960">0</div>
+                            <div class="text-[10px] md:text-xs text-gray-500 font-bold uppercase mt-1">50+ Thn</div>
+                            <div class="text-[10px] text-gray-400">Lansia</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Berdasarkan Agama -->
+                <div class="w-full">
+                    <h3 class="text-lg font-bold text-gray-800 text-center mb-6 flex items-center justify-center">
+                        <i class="fas fa-praying-hands text-pemda-secondary mr-2"></i> Berdasarkan Agama
+                    </h3>
+                    <div class="grid grid-cols-3 md:grid-cols-5 gap-4 text-center">
+                        <div class="p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-pemda-secondary transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="21077">0</div>
+                            <div class="text-xs text-gray-500 font-semibold mt-1">Islam</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-pemda-secondary transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="638">0</div>
+                            <div class="text-xs text-gray-500 font-semibold mt-1">Kristen</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-pemda-secondary transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="262">0</div>
+                            <div class="text-xs text-gray-500 font-semibold mt-1">Katholik</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-pemda-secondary transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="8">0</div>
+                            <div class="text-xs text-gray-500 font-semibold mt-1">Hindu</div>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg border border-gray-100 shadow-sm hover:border-pemda-secondary transition">
+                            <div class="text-xl font-bold text-pemda-primary counter" data-target="130">0</div>
+                            <div class="text-xs text-gray-500 font-semibold mt-1">Budha</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SAMBUTAN LURAH & PROFIL -->
+    <section id="profil" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <!-- Bagian Foto Lurah -->
+                <div class="md:w-1/2 relative flex justify-center">
+                    <!-- Elemen Dekorasi (Lingkaran Background) -->
+                    <div class="absolute top-0 right-10 w-32 h-32 bg-orange-100 rounded-full z-0"></div>
+                    
+                    <!-- Foto Profil Lingkaran -->
+                    <img src="Assets/FOTO PAK LURAH.png" 
+                         alt="Lurah Mimbaan" 
+                         class="rounded-full shadow-2xl relative z-10 w-80 h-80 md:w-96 md:h-96 object-cover border-8 border-white">
+                    
+                    <!-- Kartu Nama (Diposisikan di tengah bawah) -->
+                    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-white px-6 py-3 shadow-lg rounded-full z-20 border-2 border-pemda-primary text-center whitespace-nowrap">
+                        <p class="font-bold text-gray-800 text-lg">REFAN RIZKY MULYADI, S.STP, M.M</p>
+                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Lurah Mimbaan</p>
+                    </div>
+                </div>
+
+                <!-- Bagian Teks -->
+                <div class="md:w-1/2 mt-12 md:mt-0"> <!-- Tambah margin top untuk mobile agar tidak tertutup kartu nama -->
+                    <h4 class="text-pemda-primary font-bold uppercase tracking-wider mb-2">Profil Kelurahan</h4>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Mewujudkan Tata Kelola Pemerintahan yang Bersih & Melayani</h2>
+                    <div class="text-gray-600 leading-relaxed space-y-4 text-justify">
+                        <p>
+                            Kelurahan Mimbaan berkomitmen untuk memberikan pelayanan terbaik bagi masyarakat. Melalui website ini, kami berharap dapat menjembatani informasi antara pemerintah kelurahan dan warga, serta mempromosikan potensi lokal yang kami miliki.
+                        </p>
+                        <p>
+                            Sebagai salah satu kelurahan yang dinamis di Kecamatan Panji, kami terus berinovasi dalam tata kelola pemerintahan yang transparan, akuntabel, dan partisipatif. Sinergi antara aparatur pemerintah dan seluruh elemen masyarakat menjadi kunci utama dalam membangun lingkungan yang aman, nyaman, dan produktif demi kesejahteraan bersama. Kami percaya bahwa dengan semangat gotong royong, Mimbaan akan terus tumbuh menjadi wilayah yang mandiri dan berdaya saing.
+                        </p>
+                    </div>
+
+                    <!-- Tombol Tambahan: Struktur Organisasi (Diperbarui: Posisi Center) -->
+                    <div class="mt-8 text-center">
+                        <a href="struktur-organisasi.html" class="inline-flex items-center justify-center px-8 py-3 bg-pemda-primary text-white font-bold rounded-full shadow-lg hover:bg-pemda-dark hover:shadow-xl hover:-translate-y-1 transition transform duration-300 group">
+                            <i class="fas fa-sitemap mr-2"></i> Lihat Struktur Organisasi
+                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BERITA TERKINI -->
+    <section id="berita" class="py-20 bg-pemda-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">KABAR MIMBAAN</h2>
+                <div class="w-20 h-1 bg-pemda-secondary mx-auto mt-2 rounded-full"></div>
+                <p class="text-gray-600 mt-3">Berita terbaru dan informasi penting seputar kelurahan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Berita 1 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+                    <a href="berita1.html" class="block overflow-hidden group">
+                        <img src="Assets/BERITA1.jpeg" alt="Shalawat Nariyah & Doa Awal Tahun" class="w-full h-48 object-cover transition duration-500 group-hover:scale-110">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center text-xs text-gray-500 mb-3">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded mr-2">Masyarakat</span>
+                            <i class="far fa-calendar-alt mr-1"></i> 02 Januari 2026
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="berita-rapat.html" class="hover:text-pemda-primary transition">Pembacaan Shalawat Nariyah & Doa Awal Tahun</a>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">Kegiatan pembacaan Shalawat Nariyah dan Doa Awal Tahun</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                            <a href="berita1.html" class="text-pemda-primary font-semibold text-sm hover:underline inline-flex items-center group">
+                                Baca Selengkapnya 
+                                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Berita 2 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+                    <a href="berita2.html" class="block overflow-hidden group">
+                        <img src="Assets/BERITA2.jpeg" alt="Diskusi Warga" class="w-full h-48 object-cover transition duration-500 group-hover:scale-110">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center text-xs text-gray-500 mb-3">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded mr-2">Masyarakat</span>
+                            <i class="far fa-calendar-alt mr-1"></i> 06 Januari 2026
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="berita-blt.html" class="hover:text-pemda-primary transition">Rapat Koordinasi terkait Balap Liar</a>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">Mengikuti Rapat Koordinasi di Pendopo Kecamatan Panji terkait keluhan warga tentang Balap Liar</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                            <a href="berita2.html" class="text-pemda-primary font-semibold text-sm hover:underline inline-flex items-center group">
+                                Baca Selengkapnya 
+                                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Berita 3 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full">
+                    <a href="berita3.html" class="block overflow-hidden group">
+                        <img src="Assets/BERITA3.jpeg" alt="Kerja Bakti" class="w-full h-48 object-cover transition duration-500 group-hover:scale-110">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center text-xs text-gray-500 mb-3">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded mr-2">Masyarakat</span>
+                            <i class="far fa-calendar-alt mr-1"></i> 07 Januari 2026
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="berita-jumat-bersih.html" class="hover:text-pemda-primary transition">Kunjungan Posyandu RW 001 dan RW 016</a>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">Kunjungan Lurah Mimbaan ke Posyandu di RW 001 dan RW 016</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                            <a href="berita3.html" class="text-pemda-primary font-semibold text-sm hover:underline inline-flex items-center group">
+                                Baca Selengkapnya 
+                                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEGIATAN (Internal & Eksternal) -->
+    <section id="kegiatan" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900">Agenda Kegiatan</h2>
+                    <div class="w-20 h-1 bg-pemda-secondary mt-2 rounded-full"></div>
+                </div>
+                <!-- Filter Tabs -->
+                <div class="flex space-x-2 mt-4 md:mt-0">
+                    <button onclick="filterKegiatan('all')" class="px-4 py-2 bg-pemda-primary text-white rounded text-sm font-medium hover:bg-pemda-dark transition">Semua</button>
+                    <button onclick="filterKegiatan('internal')" class="px-4 py-2 bg-gray-100 text-gray-600 rounded text-sm font-medium hover:bg-gray-200 transition">Internal</button>
+                    <button onclick="filterKegiatan('eksternal')" class="px-4 py-2 bg-gray-100 text-gray-600 rounded text-sm font-medium hover:bg-gray-200 transition">Eksternal</button>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Kegiatan 1 (Internal) -->
+                <div class="kegiatan-item internal bg-white border border-gray-200 rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:shadow-md transition">
+                    <div class="bg-orange-100 text-pemda-primary w-full md:w-24 h-24 rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold">02</span>
+                        <span class="text-xs uppercase font-bold">Jan</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Internal</span>
+                            <span class="text-gray-400 text-xs"><i class="far fa-clock"></i> 19.00 WIB</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Shalawat Nariyah 4444 dan Doa Awal Tahun</h3>
+                        <p class="text-sm text-gray-600">Dalam rangka menyambut awal tahun, kami mengadakan kegiatan pembacaan Shalawat Nariyah sebanyak 4444x dan Doa Awal Tahun</p>
+                        <p class="text-xs text-gray-400 mt-2"><i class="fas fa-map-marker-alt"></i> Aula Kelurahan Mimbaan</p>
+                    </div>
+                    <div class="flex-shrink-0 mt-4 md:mt-0">
+                        <span class="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">Selesai</span>
+                    </div>
+                </div>
+
+                <!-- Kegiatan 2 (Eksternal) -->
+                <div class="kegiatan-item eksternal bg-white border border-gray-200 rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:shadow-md transition">
+                    <div class="bg-orange-100 text-pemda-primary w-full md:w-24 h-24 rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold">30</span>
+                        <span class="text-xs uppercase font-bold">Des</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Eksternal</span>
+                            <span class="text-gray-400 text-xs"><i class="far fa-clock"></i> 19.00 WIB</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Ngopi Bareng Mas Rio dan Mbak Ulfi</h3>
+                        <p class="text-sm text-gray-600">Kegiatan Ngopi Bareng sekaligus Diskusi bersama Bupati dan Wakil Bupati Situbondo yang akan dihadiri oleh perwakilan PPPK Paruh Waktu.</p>
+                        <p class="text-xs text-gray-400 mt-2"><i class="fas fa-map-marker-alt"></i> Pendopo Rakyat Situbondo</p>
+                    </div>
+                    <div class="flex-shrink-0 mt-4 md:mt-0">
+                        <span class="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">Selesai</span>
+                    </div>
+                </div>
+
+                 <!-- Kegiatan 3 (Eksternal) -->
+                <div class="kegiatan-item eksternal bg-white border border-gray-200 rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:shadow-md transition">
+                    <div class="bg-orange-100 text-pemda-primary w-full md:w-24 h-24 rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold">06</span>
+                        <span class="text-xs uppercase font-bold">Jan</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Eksternal</span>
+                            <span class="text-gray-400 text-xs"><i class="far fa-clock"></i> 19.00 WIB</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Rapat Koordinasi</h3>
+                        <p class="text-sm text-gray-600">Rapat Koordinasi terkait keluhan warga mengenai balap liar di Jl. Basuki Rahmat dan Argopuro</p>
+                        <p class="text-xs text-gray-400 mt-2"><i class="fas fa-map-marker-alt"></i> Pendopo Kecamatan Panji</p>
+                    </div>
+                    <div class="flex-shrink-0 mt-4 md:mt-0">
+                        <span class="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">Selesai</span>
+                    </div>
+                </div>
+
+                <!-- Kegiatan 4 (Eksternal) -->
+                 <div class="kegiatan-item eksternal bg-white border border-gray-200 rounded-lg p-4 flex flex-col md:flex-row items-center gap-6 hover:shadow-md transition">
+                    <div class="bg-orange-100 text-pemda-primary w-full md:w-24 h-24 rounded-lg flex flex-col items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold">09</span>
+                        <span class="text-xs uppercase font-bold">Jan</span>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-orange-100 text-orange-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">Eksternal</span>
+                            <span class="text-gray-400 text-xs"><i class="far fa-clock"></i> 06.30 WIB</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800">Senam Sehat</h3>
+                        <p class="text-sm text-gray-600">Senam Sehat Bersama yang dihadiri oleh beberapa Perangkat Desa, Tokoh Masyarakat, dan Tenaga Kesehatan</p>
+                        <p class="text-xs text-gray-400 mt-2"><i class="fas fa-map-marker-alt"></i> Halaman Kecamatan Panji</p>
+                    </div>
+                    <div class="flex-shrink-0 mt-4 md:mt-0">
+                        <span class="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-200">Selesai</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PETA SEBARAN UMKM (MENU BARU) -->
+    <section id="peta-umkm" class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <span class="text-pemda-secondary font-bold uppercase tracking-widest text-sm mb-2 block">Lokasi Usaha Warga</span>
+                <h2 class="text-3xl font-bold text-gray-900">Peta Sebaran UMKM</h2>
+                <div class="w-20 h-1 bg-pemda-primary mx-auto mt-3 rounded-full"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Temukan lokasi UMKM terdekat di sekitar Anda melalui peta interaktif berikut.</p>
+            </div>
+
+            <!-- CONTAINER PETA -->
+            <div class="w-full h-[500px] bg-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-200 relative z-10">
+                <!-- 
+                    ================================================================================
+                    PETUNJUK PENGISIAN LINK PETA GOOGLE MY MAPS:
+                    1. Buka Google My Maps Anda (google.com/mymaps).
+                    2. Klik tombol menu (titik tiga) di sebelah nama peta Anda.
+                    3. Pilih "Sematkan di situs saya" (Embed on my site).
+                    4. Salin link yang ada di dalam tanda kutip src="..." (contoh: https://www.google.com/maps/d/embed?mid=...)
+                    5. Tempelkan link tersebut menggantikan link contoh di bawah ini pada bagian src="...".
+                    ================================================================================
+                -->
+                <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1sDUREc7p4bMDFeQEC4ar5OkPwTw-xn0&ehbc=2E312F" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="Peta Sebaran UMKM Mimbaan">
+                </iframe>
+            </div>
+            
+            <div class="text-center mt-6">
+                <a href="https://www.google.com/maps/d/u/0/embed?mid=1sDUREc7p4bMDFeQEC4ar5OkPwTw-xn0&ehbc=2E312F" target="_blank" class="text-pemda-primary hover:text-pemda-dark font-medium text-sm inline-flex items-center transition">
+                    <i class="fas fa-external-link-alt mr-2"></i> Buka Peta Lebih Besar di Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BARU: UMKM DESA -->
+    <section id="umkm" class="py-20 bg-orange-50 relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/food.png')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-pemda-secondary font-bold uppercase tracking-widest text-sm mb-2 block">Bela Beli Produk Tetangga</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Galeri UMKM Mimbaan</h2>
+                <div class="w-20 h-1 bg-pemda-primary mx-auto mt-3 rounded-full"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Produk unggulan kuliner & hasil karya warga Kelurahan Mimbaan. Dukung ekonomi lokal dengan membeli produk asli daerah kita.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card UMKM 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition duration-300 border border-orange-100 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Assets/UMKM1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Keripik Tempe">
+                        <span class="absolute top-2 right-2 bg-pemda-primary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase">Kuliner</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1 leading-tight group-hover:text-pemda-primary transition">Keripik Tempe UD YUZAK</h3>
+                        <p class="text-xs text-gray-500 mb-3 flex items-center"><i class="fas fa-store mr-1 text-pemda-secondary"></i> Pengkepeng - RT 002 / RW 018</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Tempe Mentah, Keripik Tempe, dan Sambal Goreng Tempe.</p>
+                        <div class="mt-auto flex flex-col gap-3 border-t border-gray-100 pt-3">
+                            <span class="text-pemda-primary font-bold text-lg">Rp. 5.000 - Rp 20.000</span>
+                            <a href="https://wa.me/6285235301800" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-full py-2 rounded-lg flex items-center justify-center transition shadow-sm text-sm font-semibold group-wa">
+                                <i class="fab fa-whatsapp text-lg mr-2 group-wa-hover:scale-110 transition"></i> Hubungi Penjual
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card UMKM 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition duration-300 border border-orange-100 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Assets/UMKM2.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Ayam Geprek Pedas">
+                        <span class="absolute top-2 right-2 bg-pemda-primary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase">Kuliner</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1 leading-tight group-hover:text-pemda-primary transition">Midipip's Chicken</h3>
+                        <p class="text-xs text-gray-500 mb-3 flex items-center"><i class="fas fa-store mr-1 text-pemda-secondary"></i> Jl. Basuki Rahmat - RT 003 / RW 012</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Aneka Kuliner Ayam Pedas</p>
+                        <div class="mt-auto flex flex-col gap-3 border-t border-gray-100 pt-3">
+                            <span class="text-pemda-primary font-bold text-lg">Rp 6.000 - Rp. 10.000</span>
+                            <a href="https://wa.me/6282335049834" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-full py-2 rounded-lg flex items-center justify-center transition shadow-sm text-sm font-semibold group-wa">
+                                <i class="fab fa-whatsapp text-lg mr-2 group-wa-hover:scale-110 transition"></i> Hubungi Penjual
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card UMKM 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition duration-300 border border-orange-100 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Assets/UMKM3.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Mie Ratu">
+                        <span class="absolute top-2 right-2 bg-pemda-primary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase">Kuliner</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1 leading-tight group-hover:text-pemda-primary transition">Mie Ratu Situbondo</h3>
+                        <p class="text-xs text-gray-500 mb-3 flex items-center"><i class="fas fa-store mr-1 text-pemda-secondary"></i> Jl. Basuki Rahmat - RT 004 / RW 010</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Anek kuliner mie pedas dan gurih.</p>
+                        <div class="mt-auto flex flex-col gap-3 border-t border-gray-100 pt-3">
+                            <span class="text-pemda-primary font-bold text-lg">Rp. 8.000 - Rp 14.000</span>
+                            <a href="https://wa.me/6285947686671" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-full py-2 rounded-lg flex items-center justify-center transition shadow-sm text-sm font-semibold group-wa">
+                                <i class="fab fa-whatsapp text-lg mr-2 group-wa-hover:scale-110 transition"></i> Hubungi Penjual
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card UMKM 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition duration-300 border border-orange-100 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Assets/UMKM4.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Tas Anyaman">
+                        <span class="absolute top-2 right-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase">Kerajinan</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-gray-800 text-lg mb-1 leading-tight group-hover:text-pemda-primary transition">Tas dan Aksesoris Modern</h3>
+                        <p class="text-xs text-gray-500 mb-3 flex items-center"><i class="fas fa-store mr-1 text-pemda-secondary"></i> Jl. Argopuro O IV/6 - RT 002 / RW 004</p>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">Kerajinan Aksesoris dan Tas modern.</p>
+                        <div class="mt-auto flex flex-col gap-3 border-t border-gray-100 pt-3">
+                            <span class="text-pemda-primary font-bold text-lg">Rp 10.000 - Rp. 200.000</span>
+                            <a href="https://wa.me/6282143042943" target="_blank" class="bg-green-500 hover:bg-green-600 text-white w-full py-2 rounded-lg flex items-center justify-center transition shadow-sm text-sm font-semibold group-wa">
+                                <i class="fab fa-whatsapp text-lg mr-2 group-wa-hover:scale-110 transition"></i> Hubungi Penjual
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Lihat Katalog Lengkap (Dikembalikan) -->
+            <div class="text-center mt-12">
+                <a href="katalog-umkm.html" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-pemda-primary hover:bg-pemda-dark shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    Lihat Katalog Lengkap <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- POTENSI WISATA -->
+    <section id="wisata" class="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Jelajahi Potensi Wisata Mimbaan</h2>
+                <div class="w-20 h-1 bg-pemda-secondary mx-auto mt-2 rounded-full"></div>
+                <p class="text-gray-400 mt-3">Destinasi Wisata untuk Bermain dan Belajar.</p>
+            </div>
+
+            <div class="flex overflow-x-auto pb-8 gap-6 snap-x">
+                <!-- Card Wisata 1 -->
+                <div class="min-w-[300px] md:min-w-[350px] bg-gray-800 rounded-xl overflow-hidden snap-center">
+                    <div class="h-48 overflow-hidden relative group">
+                        <img src="Assets/SUBGUNUNG1.jpeg" alt="Wisata Kuliner" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-pemda-secondary">Wisata Gunung Patok (Watu Kodok)</h3>
+                        <p class="text-gray-400 text-sm mb-4">Sebuah bukit yang dipuncaknya terdapat sebuah batu dengan diameter sekitar satu meter.</p>
+                        <a href="gunung.html" class="inline-block text-sm text-white border border-white/30 px-4 py-2 rounded hover:bg-white hover:text-black transition">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Card Wisata 2 -->
+                <div class="min-w-[300px] md:min-w-[350px] bg-gray-800 rounded-xl overflow-hidden snap-center">
+                    <div class="h-48 overflow-hidden relative group">
+                        <img src="Assets/RTH.jpeg" alt="Taman Kota" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-pemda-secondary">Ruang Terbuka Hijau</h3>
+                        <p class="text-gray-400 text-sm mb-4">Area santai keluarga dengan fasilitas olahraga dan taman bermain anak yang asri dan bersih.</p>
+                        <a href="RTH.html" class="inline-block text-sm text-white border border-white/30 px-4 py-2 rounded hover:bg-white hover:text-black transition">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Card Wisata 3 -->
+                <div class="min-w-[300px] md:min-w-[350px] bg-gray-800 rounded-xl overflow-hidden snap-center">
+                    <div class="h-48 overflow-hidden relative group">
+                        <img src="Assets/tamanpancing.jpeg" alt="UMKM Batik" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-pemda-secondary">Wisata Taman Pancing</h3>
+                        <p class="text-gray-400 text-sm mb-4">Tempat bermain untuk Anak-anak dan Spot Memancing.</p>
+                        <a href="tamanpancing.html" class="inline-block text-sm text-white border border-white/30 px-4 py-2 rounded hover:bg-white hover:text-black transition">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="kontak" class="bg-orange-600 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Identitas -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center text-white">
+                            <img
+                                src="Assets/Logo Situbondo.png"
+                                alt="Logo Kabupaten Situbondo" 
+                            />
+                        </div>
+                        <span class="text-xl font-bold tracking-wider">KELURAHAN MIMBAAN</span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 max-w-sm">
+                        Website resmi Pemerintah Kelurahan Mimbaan. Media komunikasi dan transparansi informasi untuk mewujudkan pelayanan publik yang prima.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=100079911950300" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-pemda-secondary transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/kelurahanmimbaan?igsh=ZnlkeGV5YXBucmFi" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-pemda-secondary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@kelurahanmimbaan9109?si=igorCq8pEuJxjHvK" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-pemda-secondary transition"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@kelurahan.mimbaan?_r=1&_t=ZS-92ERo9zyF4H" class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-pemda-secondary transition"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Kontak -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Hubungi Kami</h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-white"></i> Jl. Pasar Panji No. 512 A, Mimbaan, Kec. Panji, Kabupaten Situbondo</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-white"></i> kelurahanmimbaan03@gmail.com</li>
+                    </ul>
+                </div>
+
+                <!-- Jam Pelayanan -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Jam Pelayanan</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span>Senin - Kamis</span> <span>07:30 - 16:00</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span>Jumat</span> <span>07:30 - 11:15</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-1"><span>Sabtu - Minggu</span> <span class="text-white-300">Libur</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/50 pt-8 text-center text-sm text-white-400">
+                <p>&copy; 2025 Pemerintah Kelurahan Mimbaan. All Rights Reserved. <br> Developed by IT Support Kelurahan Mimbaan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript Sederhana -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Simple Filter Logic for Kegiatan
+        function filterKegiatan(category) {
+            const items = document.querySelectorAll('.kegiatan-item');
+            const buttons = document.querySelectorAll('#kegiatan button');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Script Animasi Counter Statistik
+        // Menjalankan animasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LOGIKA COUNTER ---
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // Semakin kecil semakin lambat
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.counter')?.closest('section');
+            if(statsSection) {
+                observer.observe(statsSection);
+            } else {
+                animateCounters();
+            }
+
+            // --- LOGIKA BACKGROUND SLIDER ---
+            const slides = document.querySelectorAll('#hero-slider .bg-slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; // Ganti setiap 5 detik
+
+            setInterval(() => {
+                // Sembunyikan slide saat ini
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                
+                // Pindah ke slide berikutnya
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // Tampilkan slide berikutnya
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }, slideInterval);
+        });
+    </script>
+</body>
+</html>
