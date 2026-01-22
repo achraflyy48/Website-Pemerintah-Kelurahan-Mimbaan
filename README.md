@@ -44,12 +44,7 @@ Dibangun menggunakan **Next.js 14 (App Router)** untuk performa maksimal dan SEO
 * **Maps:** Leaflet / Google Maps Embed
 
 ---
+📝 Lisensi
+Hak Cipta © 2024 Pemerintah Kelurahan Mimbaan. Seluruh aset grafis dan data adalah milik instansi terkait.
 
-## 🚀 Cara Instalasi & Menjalankan (Local Development)
-
-Ikuti langkah berikut untuk menjalankan proyek ini di komputer lokal Anda:
-
-### 1. Clone Repository
-```bash
-git clone [https://github.com/](https://github.com/)achraflyy48/Website-Pemerintah-Kelurahan-Mimbaan.git
-cd Website-Pemerintah-Kelurahan-Mimbaan
+<div align="center"> <small>Dibuat dengan ❤️ oleh Tim IT Support & Web Developer Kelurahan Mimbaan</small> </div>
