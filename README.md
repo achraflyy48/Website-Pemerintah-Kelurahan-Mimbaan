@@ -11,9 +11,9 @@
 
 ## 📸 Preview Aplikasi
 
-| Halaman Beranda | Layanan Mandiri |
+| Halaman Beranda | Direktori UMKM |
 | :---: | :---: |
-| <img width="1365" height="682" alt="Image" src="https://github.com/user-attachments/assets/98e40a79-0d64-473a-b29c-1fc74a1c7507"/> | ![Services](https://placehold.co/600x400/1e293b/FFF?text=Screenshot+Layanan) |
+| <img width="1365" height="682" alt="Image" src="https://github.com/user-attachments/assets/98e40a79-0d64-473a-b29c-1fc74a1c7507"/> | <img width="1365" height="682" alt="Image" src="https://github.com/user-attachments/assets/9726682a-05b1-4adb-8225-c7d7e1711a6a" /> |
 
 ---
 
@@ -51,5 +51,5 @@ Ikuti langkah berikut untuk menjalankan proyek ini di komputer lokal Anda:
 
 ### 1. Clone Repository
 ```bash
-git clone [https://github.com/](https://github.com/)[USERNAME_ANDA]/[NAMA_REPO].git
-cd [NAMA_REPO]
+git clone [https://github.com/](https://github.com/)achraflyy48/Website-Pemerintah-Kelurahan-Mimbaan.git
+cd Website-Pemerintah-Kelurahan-Mimbaan
