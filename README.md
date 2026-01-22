@@ -1,1 +1,55 @@
-# Website-Pemerintah-Kelurahan-Mimbaan
+# 🏛️ Sistem Informasi & Profil Digital Kelurahan Mimbaan
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Shadcn UI](https://img.shields.io/badge/shadcn%2Fui-Latest-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
+
+> **Platform digital resmi untuk transparansi informasi, pelayanan publik, dan promosi potensi wilayah Kelurahan Mimbaan, Kecamatan Panji, Kabupaten Situbondo.**
+
+---
+
+## 📸 Preview Aplikasi
+
+| Halaman Beranda | Layanan Mandiri |
+| :---: | :---: |
+| ![Home](https://placehold.co/600x400/1e293b/FFF?text=Screenshot+Homepage) | ![Services](https://placehold.co/600x400/1e293b/FFF?text=Screenshot+Layanan) |
+
+---
+
+## 📖 Tentang Proyek
+
+Website ini dibangun sebagai upaya **Transformasi Digital** di lingkungan Pemerintah Kelurahan Mimbaan. Bertujuan untuk memudahkan warga mengakses informasi pemerintahan, mengurus administrasi secara mandiri, serta memantau transparansi anggaran desa.
+
+Dibangun menggunakan **Next.js 14 (App Router)** untuk performa maksimal dan SEO yang baik, serta **Tailwind CSS + Shadcn UI** untuk tampilan antarmuka yang modern, bersih, dan aksesibel.
+
+### Fitur Utama:
+* ✅ **Profil Wilayah:** Sejarah, Visi Misi, dan Struktur Organisasi (SOTK).
+* ✅ **Layanan Warga:** Informasi prosedur pengurusan surat (KK, KTP, Surat Pengantar).
+* ✅ **Warta Desa:** Berita terkini dan agenda kegiatan kelurahan.
+* ✅ **Transparansi Anggaran:** Visualisasi APBDes dan realisasi pembangunan.
+* ✅ **Statistik:** Data demografi penduduk (berbasis grafik interaktif).
+* ✅ **Peta Wilayah:** Integrasi Google Maps untuk batas wilayah RW/RT.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+* **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+* **Language:** TypeScript / JavaScript
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
+* **Icons:** [Lucide React](https://lucide.dev/)
+* **Animation:** [Framer Motion](https://www.framer.com/motion/) (Opsional)
+* **Maps:** Leaflet / Google Maps Embed
+
+---
+
+## 🚀 Cara Instalasi & Menjalankan (Local Development)
+
+Ikuti langkah berikut untuk menjalankan proyek ini di komputer lokal Anda:
+
+### 1. Clone Repository
+```bash
+git clone [https://github.com/](https://github.com/)[USERNAME_ANDA]/[NAMA_REPO].git
+cd [NAMA_REPO]
