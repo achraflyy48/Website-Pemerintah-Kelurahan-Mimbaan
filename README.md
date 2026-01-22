@@ -13,7 +13,7 @@
 
 | Halaman Beranda | Layanan Mandiri |
 | :---: | :---: |
-| ![Home](https://placehold.co/600x400/1e293b/FFF?text=Screenshot+Homepage) | ![Services](https://placehold.co/600x400/1e293b/FFF?text=Screenshot+Layanan) |
+| <img width="1365" height="682" alt="Image" src="https://github.com/user-attachments/assets/98e40a79-0d64-473a-b29c-1fc74a1c7507"/> | ![Services](https://placehold.co/600x400/1e293b/FFF?text=Screenshot+Layanan) |
 
 ---
 
